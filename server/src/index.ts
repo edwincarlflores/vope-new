@@ -1,9 +1,11 @@
 import { Elysia } from "elysia";
-import { userRoute } from "./routes/user";
+import { staticPlugin } from "@elysiajs/static";
+import { api } from "./api/api";
 
-const app = new Elysia({ prefix: "/api" })
-  .use(userRoute)
-  .get("/", () => "Hello Elysia")
+const app = new Elysia()
+  .use(staticPlugin({ prefix: "/", assets: "./client/dist" }))
+  .use(api)
+  .get("/healthcheck", () => "Hello Elysia")
   .listen(3000);
 
 console.log(
