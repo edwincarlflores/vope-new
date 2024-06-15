@@ -18,9 +18,7 @@ function convertNumberToRank(num: number) {
   const numStr = num.toString();
   switch (true) {
     case numStr === "11":
-      return numStr + "th";
     case numStr === "12":
-      return numStr + "th";
     case numStr === "13":
       return numStr + "th";
     case numStr.endsWith("1"):
