@@ -28,7 +28,11 @@
       ],
       "@/lib/*": [
         "./src/shared/lib/*"
-      ]
+      ],
+      "@/server/*": [
+        "../server/src/*"
+      ],
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src"],

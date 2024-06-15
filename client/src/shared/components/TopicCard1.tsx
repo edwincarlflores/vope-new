@@ -1,3 +1,4 @@
+import { SVGAttributes } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Table,
@@ -8,9 +9,61 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { SVGAttributes } from "react";
+import type { Topic } from "@/services/topic.service";
 
-export default function Component() {
+interface TopicCardProps {
+  topic: Topic;
+}
+
+export function TopicCard({ topic }: TopicCardProps) {
+  return (
+    <>
+      <Card className="w-full max-w-3xl">
+        <CardHeader className="flex items-center justify-between p-4 pb-2">
+          <CardTitle>{topic.title}</CardTitle>
+          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+            <TrophyIcon className="w-5 h-5" />
+            Top Players
+          </div>
+        </CardHeader>
+        <CardContent className="p-0">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[60px]">Rank</TableHead>
+                <TableHead>Item</TableHead>
+                <TableHead className="text-right">Score</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {topic.items.map((item, idx) => (
+                <TableRow>
+                  <TableCell className="font-medium text-primary">
+                    {idx + 1}
+                  </TableCell>
+                  <TableCell>
+                    <div className="flex items-center gap-2">
+                      <Avatar className="w-8 h-8 border">
+                        <img src="/placeholder.svg" alt="@shadcn" />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                      <span>{item.name}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-right font-medium">
+                    12,345
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      </Card>
+    </>
+  );
+}
+
+export function Component() {
   return (
     <Card className="w-full max-w-3xl">
       <CardHeader className="flex items-center justify-between p-4 pb-2">

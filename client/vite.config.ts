@@ -12,6 +12,8 @@ export default defineConfig({
         "./src/shared/components",
       ),
       "@/lib": path.resolve(import.meta.dirname, "./src/shared/lib"),
+      "@/server": path.resolve(import.meta.dirname, "../server/src"),
+      "@": path.resolve(import.meta.dirname, "./src"),
     },
   },
   server: {
