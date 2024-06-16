@@ -7,7 +7,7 @@ import {
 import { treaty } from "@elysiajs/eden";
 import type { App } from "@/server/index";
 
-export const client = treaty<App>("localhost:5173");
+export const client = treaty<App>(import.meta.env.VITE_DOMAIN_URL);
 
 export type Query<TData, TQueryKey extends QueryKey> = UseQueryOptions<
   TData,

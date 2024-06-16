@@ -8,9 +8,11 @@
   "dependencies": {
     "@elysiajs/static": "^1.0.3",
     "drizzle-orm": "^0.31.2",
-    "elysia": "^1.0.23"
+    "elysia": "^1.0.23",
+    "pg": "^8.12.0"
   },
   "devDependencies": {
+    "@types/pg": "^8.11.6",
     "bun-types": "latest",
     "drizzle-kit": "^0.22.7"
   },
